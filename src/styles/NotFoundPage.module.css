@@ -1,0 +1,23 @@
+.page-404 h1 {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .page-404 h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1100px) {
+    .page-404 h1 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 1101px) {
+    .page-404 h1 {
+        font-size: 28px;
+    }
+}

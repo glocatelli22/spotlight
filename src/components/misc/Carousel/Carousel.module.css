@@ -1,0 +1,73 @@
+.previews-carousel-wrapper {
+    margin-left: 24px;
+    width: calc(100% - 24px);
+}
+
+@media screen and (min-width: 769px){
+    .previews-carousel-wrapper {
+        margin-left: 40px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .previews-carousel-wrapper {
+        margin-left: calc((100% - 1200px)/2);
+        width: calc(100% - (100% - 1200px)/2);
+    }
+}
+
+@media screen and (min-width: 1328px){
+    .previews-carousel-wrapper {
+        margin-left: calc((100% - 1280px)/2);
+        width: calc(100% - (100% - 1280px)/2);
+    }
+}
+
+.carousel-custom-controls {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.carousel-custom-controls .custom-carousel-button {
+    background-color: var(--cta);
+    color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 0px;
+    padding: 4px 8px;
+    text-align: center;
+}
+
+.carousel-custom-controls .custom-carousel-button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+.carousel-custom-controls .custom-carousel-button:first-child {
+   margin-right: 12px;
+}
+
+.carousel-custom-controls .custom-carousel-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (min-width: 1025px) {
+    .carousel-custom-controls .custom-carousel-button:hover {
+        opacity: 0.75;
+    }   
+}
+
+
+.previews-carousel-wrapper + .carousel-custom-controls {
+    padding-right: 24px;
+}
+
+@media screen and (min-width: 769px) {
+    .previews-carousel-wrapper + .carousel-custom-controls {
+        padding-right: 40px;
+    }
+}

@@ -1,0 +1,15 @@
+.score {
+    color: currentColor;
+    margin: 0 -2.5px;
+}
+
+.score > * {
+    color: currentColor;
+}
+
+.score svg {
+    width: 18px;
+    height: 18px;
+    margin: 0 2.5px;
+}
+

@@ -1,0 +1,208 @@
+.search {
+    margin-right: 16px;
+    max-width: 240px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    overflow: hidden;
+    background-color: var(--secondaryCtaHover);
+    border-radius: 22px;
+    flex: 1;
+}
+
+.search-form form {
+    flex: 1;
+}
+
+
+.search-form form input {
+    background-color: inherit;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    color: var(--white);
+}
+
+.search-btn {
+    cursor: pointer;
+    background-color: inherit;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    color: var(--white);
+    height: 40.8px;
+    padding-right: 12px;
+}
+
+.search-btn svg {
+    vertical-align: middle;
+}
+
+
+.film-tv__switch {
+    position: relative;
+    z-index: 2;
+    display: table;
+    border: 1.5px solid var(--secondary);
+    border-radius: 16px;
+    transition: border-color .3s;
+    color: inherit;
+}
+
+.film-tv__switch:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: all .3s;
+    background-color: var(--secondary);
+    width: 40px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.film-tv__switch.active {
+    border-color: var(--tertiary);
+}
+
+.film-tv__switch.active:after {
+    left: 50%;
+    background-color: var(--tertiary);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.film-tv__switch span {
+    display: inline-block;
+    font-size: 12px;
+    width: 40px;
+    padding: 6px 0;
+    text-align: center;
+    cursor: pointer;
+    text-align: center;
+    color: inherit;
+}
+
+.search.archive-search {
+    max-width: 500px;
+    margin-right: 0;
+}
+
+.search.archive-search .search-form {
+    padding-left: 8px;
+}
+
+.search.archive-search .search-form form input {
+    font-size: 16px;
+}
+
+.search.archive-search .search-toggle {
+    height: 42.4px;
+    padding-right: 16px;
+}
+
+.search-toggle {
+    display: none;
+}
+
+.backdrop {
+    display: none;
+}
+
+.search-close {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .search.archive-search {
+        max-width: 100%;
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .search:not(.archive-search) {
+        position: fixed;
+        z-index: 99;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 16px 16px 32px;
+        max-width: none;
+        box-shadow: 0px -7px 18px var(--primary);
+        transform: translateY(120%);
+        transition: transform .4s ease;
+    }
+    .search:not(.archive-search):before{
+       content: '';
+       position: absolute;
+       z-index: -1;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       border-top-left-radius: 16px;
+       border-top-right-radius: 16px;
+       background-color: var(--secondaryCta);
+    }
+
+    .search:not(.archive-search).display{
+        transform: translateY(0%);
+    }
+
+    .backdrop {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--dark-primary-layer);
+        z-index: 91;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .4s, visibility 0s .4s;
+    }
+
+    .backdrop.display {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .4s;
+    }
+
+    .search-toggle {
+        cursor: pointer;
+        display: block;
+        margin-right: 10px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: var(--white);
+    }
+
+    .search-toggle svg {
+       vertical-align: bottom;
+    }
+
+    .search-close {
+        display: block;
+        border-radius: 16px;
+        width: 120px;
+        height: 8px;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        background-color: var(--secondaryCtaHover);
+        color: var(--white);
+        margin-bottom: 32px;
+    } 
+}

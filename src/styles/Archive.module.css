@@ -1,0 +1,294 @@
+.load-more-btn {
+    display: block;
+    margin: auto;   
+}
+
+.archive-error {
+    text-align: center;
+    color: var(--white);
+}
+
+.archive-error span {
+    display: block;
+    color: inherit;
+}
+
+.archive-list {
+    position: relative;
+    margin-bottom: 40px;
+    min-height: 300px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.centered:only-child {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 768px) {
+    .archive-list {
+        margin-top: -60px;
+    }
+}
+
+.archive-filter {
+    background-color: var(--secondaryCta);
+    border-radius: 8px;
+}
+
+.archive-filter__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    margin-bottom: 8px;
+    background-color: inherit;
+    border-radius: inherit;
+}
+
+.archive-filter__head h3 {
+    margin-bottom: 0;
+}
+
+.archive-filter__body {
+    padding: 0 22px 16px;
+    background-color: inherit;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.archive-filter h4 {
+    margin: 0 0 16px;
+}
+
+.archive-filter .archive-filter__body .archive-filter__form .archive-filter__form-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--layer-color);
+}
+
+.archive-filter .archive-filter__body .archive-filter__form .archive-filter__form-section:nth-last-child(2) {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.archive-filter__form .archive-filter__form-section .form-section__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.archive-filter__form .archive-filter__form-section .form-section__head h4 {
+    margin: 0;
+}
+
+.archive-filter__form .archive-filter__form-section .form-section__body {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height .4s ease;
+}
+
+.archive-filter__form .archive-filter__form-section.open-accordion .form-section__body {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.form-section__body::-webkit-scrollbar {
+    width: 3.4px;
+  }
+   
+.form-section__body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px var(--layer-color);
+}
+
+.form-section__body::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+    border-radius: 8px;
+}
+
+.archive-filter__form .archive-filter__form-section .genre-tag {
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 12px;
+}
+
+.archive-filter__form .archive-filter__form-section .genre-tag label { 
+   font-size: 14px;
+   display: inline-block;
+   cursor: pointer;
+   padding: 4px 8px;
+   border: 2px solid var(--layer-color);
+   border-radius: 8px;
+   transition: background-color .2s ease;
+}
+
+.archive-filter__form .archive-filter__form-section .genre-tag input {
+    position: absolute;
+    opacity: 0;
+}
+
+.archive-filter__form .archive-filter__form-section .genre-tag input:checked ~ label{
+   background-color: var(--secondaryCtaHover);
+}
+
+.archive-filter__form .archive-filter__form-section .rating-selector input {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.archive-filter__form .archive-filter__form-section .rating-selector .rating-selector__rating-displayer {
+    color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px -6px 0;
+    padding-right: 12px;
+}
+
+.archive-filter__form .archive-filter__form-section .rating-selector .rating-selector__rating-displayer.tv-shows {
+    color: var(--tertiary);
+}
+
+.archive-filter__form .archive-filter__form-section .rating-selector .rating-selector__rating-displayer svg {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+}
+
+.archive-filter__form .archive-filter__form-section .rating-selector .rating-selector__rating-displayer span {
+    font-size: 16px;
+    color: var(--white);
+}
+
+.archive-filter__form .archive-filter__form-section .date-picker div {
+    display: flex;
+    align-items: center;
+}
+
+.archive-filter__form .archive-filter__form-section .date-picker div svg {
+    margin-right: 10px;
+}
+
+.archive-filter__form .archive-filter__form-section .date-picker div input {
+   flex: 1;
+}
+
+.archive-filter__form .archive-filter__form-section .date-picker div:first-of-type  {
+    margin-bottom: 8px;
+}
+
+.archive-filter__form button {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.archive-filter__body-close {
+    display: none;
+}
+
+.archive-filter .backdrop {
+    display: none;
+}
+
+@media screen and (min-width: 769px) {
+    .archive-filter {
+        position: sticky;
+        top: 20px;
+    }
+    .archive-filter__head {
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .archive-filter__head {
+        cursor: pointer;
+        padding: 10px 16px;
+        margin-bottom: 0;
+        position: fixed;
+        z-index: 49;
+        bottom: 40px;
+        width: 110px;
+        transition: opacity .25s;
+    } 
+
+    .archive-filter__body {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 16px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        z-index: 80;
+        transform: translateY(120%);
+        transition: transform .4s;
+        box-shadow: 0px -7px 18px var(--primary);
+    } 
+
+    .archive-filter.open .archive-filter__body {
+        transform: translateY(0%);
+    } 
+
+    
+    .archive-filter.open .archive-filter__head {
+        opacity: 0;
+    } 
+    
+    .archive-filter .backdrop {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--dark-primary-layer);
+        z-index: 79;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .4s, visibility 0s .4s;
+    }
+
+    .archive-filter.open .backdrop {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .4s;
+    }
+
+
+    .archive-filter__body-close {
+        display: block;
+        border-radius: 16px;
+        width: 120px;
+        height: 8px;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        background-color: var(--secondaryCtaHover);
+        color: var(--white);
+        margin-bottom: 32px;
+    } 
+
+    .archive-filter__body-close svg {
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+    }
+
+    .archive-filter__form {
+        margin-top: 20px;
+    }
+}

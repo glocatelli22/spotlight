@@ -1,0 +1,117 @@
+@media screen and (max-width: 1024px) {
+    .hp-upcoming-movie__row > div:first-child {
+        order: 2;
+    }      
+}
+
+.hp-carousel-section {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.hp-carousel-section:first-child {
+    margin-top: 40px;
+}
+
+.hp-carousel-section .hp-carousel-section__head .title-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.hp-carousel-section .hp-carousel-section__head .title-wrapper h2 {
+    margin-bottom: 0;
+    margin-right: 16px;
+}
+
+.hp-carousel-section .hp-carousel-section__head .title-wrapper a {
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.hp-carousel-section .hp-carousel-section__head .title-wrapper svg {
+   vertical-align: bottom;
+}
+
+@media screen and (max-width: 640px) {
+    .hp-carousel-section .hp-carousel-section__head .title-wrapper {
+        flex-flow: column;
+        align-items: flex-start;
+    }
+    .hp-carousel-section .hp-carousel-section__head .title-wrapper h2 {
+        margin-bottom: 8px;
+    }
+}
+
+.hp-roulette {
+    display: flex;
+    align-items: center;
+}
+
+.hp-roulette .roulette-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-primary);
+    border-radius: 8px;
+}
+
+.hp-roulette .roulette-card svg{
+    color: var(--layer-color);
+}
+
+.hp-roulette .roulette-card:after {
+    content: '';
+    display: block;
+    padding-bottom: 146.36%;
+}
+
+.hp-roulette .roulette-card {
+    color: var(--layer-color);
+}
+
+.hp-roulette .roulette-card span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 110%;
+    height: 2px; 
+    border-radius: 8px;
+    background-color: var(--secondary);
+    opacity: 0;
+}
+
+.hp-roulette .roulette-card span:after {
+    right: 0;
+}
+
+
+@keyframes blinking {
+    from {
+        opacity:  1;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes load {
+    0% {
+        opacity: 1;
+        top: 0;
+    } 
+    100% {
+        opacity: 1;
+        top: 100%;
+    }
+}
+
+.hp-roulette.spinning .roulette-card span {
+    animation: load 1.4s ease-in-out infinite alternate;
+}   
+
+.hp-roulette.spinning .roulette-card svg {
+    animation: blinking .8s ease-in-out infinite alternate;
+}   
