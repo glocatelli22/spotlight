@@ -14,6 +14,7 @@
 }
 
 .search-form form {
+    display: flex;
     flex: 1;
 }
 
@@ -133,31 +134,52 @@
     .search:not(.archive-search) {
         position: fixed;
         z-index: 99;
-        bottom: 0;
+        bottom: -100%;
         left: 0;
         width: 100%;
         padding: 16px 16px 32px;
         max-width: none;
-        box-shadow: 0px -7px 18px var(--primary);
-        transform: translateY(120%);
-        transition: transform .4s ease;
+        transform: scaleX(0);
+        transition: transform .3s ease-out;
     }
-    .search:not(.archive-search):before{
-       content: '';
-       position: absolute;
-       z-index: -1;
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-       border-top-left-radius: 16px;
-       border-top-right-radius: 16px;
-       background-color: var(--secondaryCta);
+
+    .search:not(.archive-search) .search-form > * {
+        opacity: 0;
+        transition: opacity .2s;
     }
 
     .search:not(.archive-search).display{
-        transform: translateY(0%);
+        transform: scaleX(1);
+        bottom: 50%;
+        opacity: 1;
     }
+
+    .search:not(.archive-search).display .search-form > *{
+        opacity: 1;
+        transition: opacity .2s .3s;
+    }
+
+    .search-close.display {
+        position: fixed;
+        display: block;
+        bottom: 50px;
+        left: calc(50% - 25px);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        line-height: 47px;
+        z-index: 91;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        background-color: var(--secondaryCtaHover);
+        color: var(--white);
+        margin-bottom: 32px;
+    } 
+
+    .search-close svg{
+      vertical-align: middle;
+    } 
 
     .backdrop {
         position: fixed;
@@ -168,11 +190,16 @@
         bottom: 0;
         background: var(--dark-primary-layer);
         z-index: 91;
+    }
+    
+    .search-close,
+    .backdrop {
         visibility: hidden;
         opacity: 0;
         transition: opacity .4s, visibility 0s .4s;
     }
 
+    .search-close.display,
     .backdrop.display {
         opacity: 1;
         visibility: visible;
@@ -193,16 +220,4 @@
        vertical-align: bottom;
     }
 
-    .search-close {
-        display: block;
-        border-radius: 16px;
-        width: 120px;
-        height: 8px;
-        cursor: pointer;
-        text-align: center;
-        margin: auto;
-        background-color: var(--secondaryCtaHover);
-        color: var(--white);
-        margin-bottom: 32px;
-    } 
 }

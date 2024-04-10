@@ -94,10 +94,6 @@ a:not(.button):hover {
 	color: var(--tertiary);
 }
 
-.logo {
-	position: relative;
-	z-index: 91;
-}
 
 .logo img {
 	width: 155px;

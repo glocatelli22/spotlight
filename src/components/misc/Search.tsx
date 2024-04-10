@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import classes from './Search.module.css';
 import { useEffect, useRef, useState } from 'react';
 import Switch from './Switch';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineSearch } from 'react-icons/ai';
 
 const SearchForm = ({ archiveSearch} : { archiveSearch: boolean}) => {
     const router = useRouter();
@@ -42,6 +42,11 @@ const SearchForm = ({ archiveSearch} : { archiveSearch: boolean}) => {
                     <button className={classes['search-toggle']} onClick={() => setDisplaySearch(prevState => !prevState)}>
                         <AiOutlineSearch size={22}/>
                     </button>       
+                    <div 
+                        className={`${classes['search-close']} ${displaySearch ? classes['display'] : ''}`} 
+                        onClick={() => setDisplaySearch(false)}>
+                        <AiOutlineClose size={22} />
+                    </div>
                 </>
             } 
             <div className={`
@@ -49,9 +54,6 @@ const SearchForm = ({ archiveSearch} : { archiveSearch: boolean}) => {
                 ${archiveSearch ? classes['archive-search'] : ''}
                 ${displaySearch ? classes['display'] : ''}
             `}> 
-                {!archiveSearch && 
-                    <div className={classes['search-close']} onClick={() => setDisplaySearch(false)} />
-                }
                 <div className={classes['search-form']}>
                     <Switch 
                         active={searchShow}
@@ -63,12 +65,12 @@ const SearchForm = ({ archiveSearch} : { archiveSearch: boolean}) => {
                             type="text" 
                             name="search" 
                             placeholder="Cerca..."/>
+                        <button 
+                            type='submit'
+                            className={classes['search-btn']}>
+                            <AiOutlineSearch size={22}/>
+                        </button>
                     </form>
-                    <button 
-                        type='submit'
-                        className={classes['search-btn']}>
-                        <AiOutlineSearch size={22}/>
-                    </button>
                 </div>
             </div>
         </>
